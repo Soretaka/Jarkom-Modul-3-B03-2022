@@ -88,17 +88,66 @@ No 1
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <p>SSS</p><p>testing</p>       | <p>export http_proxy=”[http://192.174.2.3:8080](http://192.175.2.3:8080)”</p><p></p><p>date -s “7 nov 2022 13:00”</p><p>lynx google.com</p><p></p><p>date -s “7 nov 2022 18:00”</p><p>lynx google.com</p>                                                                                                                                                                                                                                      |
 
+
+Mengakses jaringan pada jam kerja (Senin, 7 November 2022 pukul 13:00)
+
+![image](https://user-images.githubusercontent.com/78299006/201722482-5885fbf8-1179-4677-961c-a352aa9c2e36.png)
+![image](https://user-images.githubusercontent.com/78299006/201722425-83bf7228-8f1a-47c4-9b4a-2783f81b40e7.png)
+
+Mengakses jaringan pada diluar jam kerja (Senin, 7 November 2022 pukul 18:00)
+
+![image](https://user-images.githubusercontent.com/78299006/201722825-0bd6176e-569d-47fc-aea1-435ef7d6d858.png)
+![diluar-jam-kerja-2](https://user-images.githubusercontent.com/78299006/201722769-8b3f1ef4-d650-4516-a4d7-f6fb6ddf65df.jpg)
+
 No 2
 
 | <p>Berlint</p><p>proxy2.sh</p> | <p>echo '</p><p>loid-work.com</p><p>franky-work.com</p><p>' > /etc/squid/work-sites.acl</p><p></p><p>echo '</p><p>include /etc/squid/acl.conf</p><p></p><p>http_port 8080</p><p>visible_hostname Berlint</p><p></p><p>acl WORKSITES dstdomain "/etc/squid/work-sites.acl"</p><p>http_access allow WORKSITES</p><p>http_access deny WORKING</p><p>http_access allow all</p><p>' > /etc/squid/squid.conf</p><p></p><p>service squid restart</p><p></p> |
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <p>SSS</p><p>testing</p>       | <p>export http_proxy=”[http://192.174.2.3:8080](http://192.175.2.3:8080)”</p><p></p><p>date -s “7 nov 2022 13:00”</p><p>lynx google.com</p><p>lynx loid-work.com</p><p>lynx franky-work.com</p>                                                                                                                                                                                                                                                      |
 
+
+Sebelumnya melakukan  test, kita akan membuat domain *loid-work.com* dan *franky-work.com*. Edit file /etc/bind/named.conf.local
+
+![image](https://user-images.githubusercontent.com/78299006/201724225-c0f4cb25-ed21-4c6e-a124-aff354e09c3d.png)
+
+Kemudian lakukan edit pada file /etc/bind/jarkom/loid-work.com
+
+![image](https://user-images.githubusercontent.com/78299006/201724686-2475ca69-8ddd-40db-91dc-aa9292acfd06.png)
+
+Edit juga file /etc/bind/jarkom/franky-work.com
+
+![image](https://user-images.githubusercontent.com/78299006/201724479-bcd0f786-1088-4fb0-8ac0-55c2b29076f4.png)
+
+Kemudian test dengan membua domain tersebut menggunakan lynx.
+
+Percobaan pada *loid-work.com*
+
+![image](https://user-images.githubusercontent.com/78299006/201725356-4453d929-8908-4b0f-995c-be5dab168202.png)
+![image](https://user-images.githubusercontent.com/78299006/201725278-3d73e5e6-7ec3-4fc1-bf08-384c50bc1811.png)
+
+Percobaan pada *franky-work.com*
+
+![image](https://user-images.githubusercontent.com/78299006/201725546-2dec0503-4088-49a9-9ba9-b282cba0bf9f.png)
+![image](https://user-images.githubusercontent.com/78299006/201725491-9d7dff73-29d0-475a-b820-b4bcd1afd044.png)
+
+
 no 3
 
 | <p>Berlint</p><p>proxy3.sh</p> | <p>echo '</p><p>include /etc/squid/acl.conf</p><p></p><p>http_port 8080</p><p>visible_hostname Berlint</p><p></p><p>acl SSL_ports port 443</p><p>acl WORKSITES dstdomain "/etc/squid/work-sites.acl"</p><p>http_access deny !SSL_ports</p><p>http_access allow WORKSITES</p><p>http_access deny WORKING</p><p>http_access allow all</p><p>' > /etc/squid/squid.conf</p><p></p><p>service squid restart</p> |
 | :----------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <p>SSS</p><p>testing</p>       | <p>export http_proxy=”[http://192.174.2.3:8080](http://192.175.2.3:8080)”</p><p></p><p>date -s “7 nov 2022 18:00”</p><p>lynx <http://example.com></p><p>lynx <https://example.com></p><p></p>                                                                                                                                                                                                              |
+
+Tidak dapat mengakses *http://example.com*
+
+![image](https://user-images.githubusercontent.com/78299006/201726079-50baac7f-3f69-4ced-b288-1693a55b8319.png)
+![image](https://user-images.githubusercontent.com/78299006/201725989-7d0cb942-1a28-48a4-8a73-28f468c5a690.png)
+
+Dapat mengakses *https://example.com*
+
+![image](https://user-images.githubusercontent.com/78299006/201726485-13fe00b0-ed4d-4525-a909-24896db286bd.png)
+![image](https://user-images.githubusercontent.com/78299006/201726442-dc8f354f-a355-405d-9235-25fdcc4bd304.png)
+
+
 
 no 4
 
