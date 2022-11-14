@@ -60,25 +60,15 @@
 | Ostania                                      | <p>jalankan command </p><p>service isc-dhcp-relay restart</p>                                                                                                                                                                                                                                                                |
 | SSS, Garden, Eden, NewstonCastle, KemonoPark | <p>gausa di matikan, langsung aja jalankan command</p><p>cat /etc/resolv.conf</p>                                                                                                                                                                                                                                            |
 
-![A screenshot of a computer
+![](https://user-images.githubusercontent.com/70903245/201679108-e5a95aa3-af77-4002-b4d9-a921e95892cf.png)
 
-Description automatically generated with medium confidence](https://user-images.githubusercontent.com/70903245/201679108-e5a95aa3-af77-4002-b4d9-a921e95892cf.png)
+![](https://user-images.githubusercontent.com/70903245/201679078-ce739bf0-a650-4d07-b70e-5390b93b935a.png)
 
-![Text
+![](https://user-images.githubusercontent.com/70903245/201679091-59882134-c298-4f60-865b-7d8bb58cdc0a.png)
 
-Description automatically generated](https://user-images.githubusercontent.com/70903245/201679078-ce739bf0-a650-4d07-b70e-5390b93b935a.png)
+![](https://user-images.githubusercontent.com/70903245/201679093-b680bae3-4566-4214-b124-16eef3b222d7.png)
 
-![Text
-
-Description automatically generated](https://user-images.githubusercontent.com/70903245/201679091-59882134-c298-4f60-865b-7d8bb58cdc0a.png)
-
-![Text
-
-Description automatically generated](https://user-images.githubusercontent.com/70903245/201679093-b680bae3-4566-4214-b124-16eef3b222d7.png)
-
-![Text
-
-Description automatically generated](https://user-images.githubusercontent.com/70903245/201679097-92ea21d5-a276-4231-863d-aaf5897cada9.png)
+![](https://user-images.githubusercontent.com/70903245/201679097-92ea21d5-a276-4231-863d-aaf5897cada9.png)
 
 1. Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit.
 1. Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran informasi dengan alamat IP yang tetap dengan IP [prefix IP].3.13
